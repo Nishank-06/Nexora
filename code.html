@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NEXORA | High-Performance Digital Craftsmanship</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@300;400;500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#d0bcff",
+                        "tertiary-fixed": "#6ffbbe",
+                        "outline": "#958ea0",
+                        "inverse-primary": "#6d3bd7",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "surface-variant": "#353436",
+                        "primary": "#d0bcff",
+                        "surface": "#0F0D1A", /* Adjusted for prompt: deep #0F0D1A */
+                        "tertiary": "#4edea3",
+                        "on-error": "#690005",
+                        "outline-variant": "#494454",
+                        "error-container": "#93000a",
+                        "primary-container": "#a078ff",
+                        "surface-dim": "#131314",
+                        "primary-fixed-dim": "#d0bcff",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "grid-line": "rgba(255, 255, 255, 0.05)",
+                        "on-tertiary": "#003824",
+                        "surface-container-high": "#2a2a2b",
+                        "surface-container": "#201f20",
+                        "on-secondary-container": "#baabf3",
+                        "primary-fixed": "#e9ddff",
+                        "surface-container-highest": "#353436",
+                        "surface-glass": "rgba(15, 13, 26, 0.7)",
+                        "secondary-fixed-dim": "#ccbeff",
+                        "on-primary-container": "#340080",
+                        "error": "#ffb4ab",
+                        "on-secondary": "#332664",
+                        "background": "#0F0D1A",
+                        "tertiary-container": "#00a572",
+                        "surface-bright": "#3a393a",
+                        "secondary-fixed": "#e7deff",
+                        "on-error-container": "#ffdad6",
+                        "on-surface": "#e5e2e3",
+                        "on-secondary-fixed-variant": "#4a3d7c",
+                        "on-primary-fixed": "#23005c",
+                        "on-primary-fixed-variant": "#5516be",
+                        "on-surface-variant": "#cbc3d7",
+                        "on-tertiary-container": "#00311f",
+                        "surface-container-lowest": "#0e0e0f",
+                        "secondary-container": "#4a3d7c",
+                        "on-background": "#e5e2e3",
+                        "inverse-on-surface": "#313031",
+                        "on-secondary-fixed": "#1e0e4e",
+                        "surface-container-low": "#1c1b1c",
+                        "secondary": "#ccbeff",
+                        "on-primary": "#3c0091",
+                        "on-tertiary-fixed": "#002113",
+                        "inverse-surface": "#e5e2e3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "64px",
+                        "stack-sm": "12px",
+                        "stack-md": "24px",
+                        "section-padding": "120px",
+                        "margin-mobile": "20px",
+                        "container-max": "1280px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter", "sans-serif"],
+                        "label-mono": ["JetBrains Mono", "monospace"],
+                        "headline-md": ["Plus Jakarta Sans", "sans-serif"],
+                        "headline-lg": ["Plus Jakarta Sans", "sans-serif"],
+                        "headline-xl-mobile": ["Plus Jakarta Sans", "sans-serif"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans", "sans-serif"],
+                        "headline-xl": ["Plus Jakarta Sans", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-mono": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-xl-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-xl": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0F0D1A;
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: #e5e2e3;
+        }
+        .glass-panel {
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(73, 68, 84, 0.3);
+            box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+        }
+        .glow-button {
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glow-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.6);
+        }
+        .grid-accent {
+            background-image: radial-gradient(circle at 2px 2px, rgba(139, 92, 246, 0.15) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="font-body-md overflow-x-hidden selection:bg-primary selection:text-on-primary">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 backdrop-blur-xl border-b border-outline-variant/30 bg-surface-glass">
+<div class="flex justify-between items-center px-margin-mobile py-4 max-w-container-max mx-auto md:px-12">
+<div class="font-headline-md-mobile text-headline-md-mobile tracking-tighter text-on-surface flex items-center gap-2">
+<span class="text-primary font-bold">NEXORA</span>
+</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary transition-colors" href="#work">WORK</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary transition-colors" href="#services">SERVICES</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary transition-colors" href="#about">ABOUT</a>
+<a class="font-label-mono text-label-mono bg-primary text-on-primary px-5 py-2 rounded-lg glow-button font-bold" href="#contact">GET A QUOTE</a>
+</nav>
+<button class="md:hidden text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="relative">
+<!-- Hero Section -->
+<section class="min-h-screen flex flex-col justify-center items-center pt-32 pb-section-padding px-margin-mobile relative overflow-hidden">
+<!-- Background Glow -->
+<div class="absolute top-1/4 -right-1/4 w-[600px] h-[600px] bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="absolute bottom-1/4 -left-1/4 w-[600px] h-[600px] bg-tertiary/5 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="max-w-container-max mx-auto text-center z-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 glass-panel rounded-full mb-stack-md border-primary/20">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-mono text-xs text-primary uppercase tracking-widest">Available for new projects</span>
+</div>
+<h1 class="font-headline-xl-mobile md:text-headline-xl font-extrabold tracking-tighter mb-6 max-w-4xl mx-auto">
+                    Websites that <span class="text-primary">work as hard</span> as you do.
+                </h1>
+<p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10 text-lg md:text-xl">
+                    We build high-performance digital presence for small businesses in days, not months. Precision-engineered for speed, growth, and reliability.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+<a class="w-full sm:w-auto px-8 py-4 bg-primary text-on-primary font-bold rounded-xl glow-button text-lg flex items-center justify-center gap-2" href="#contact">
+                        Get a Free Quote
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+<a class="w-full sm:w-auto px-8 py-4 border border-outline-variant/30 text-on-surface font-medium rounded-xl hover:bg-surface-variant transition-colors text-lg" href="#work">
+                        See Our Work
+                    </a>
+</div>
+</div>
+<!-- Browser Mockup Representation -->
+<div class="mt-20 w-full max-w-5xl mx-auto px-4 relative scroll-reveal">
+<div class="glass-panel rounded-t-2xl border-b-0 overflow-hidden shadow-2xl">
+<div class="h-10 bg-surface-container flex items-center px-4 gap-2 border-b border-outline-variant/30">
+<div class="flex gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-error/40"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-tertiary/40"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-primary/40"></div>
+</div>
+<div class="mx-auto bg-surface-container-low px-4 py-1 rounded text-[10px] font-label-mono text-on-surface-variant/60 w-1/3 text-center">
+                            nexora.digital/client-success
+                        </div>
+</div>
+<div class="h-[400px] md:h-[500px] bg-surface relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent"></div>
+<img class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="A clean, minimalist UI dashboard mockup displayed on a dark website background. The dashboard features violet and teal accents, displaying performance metrics like speed scores and engagement charts in a glassmorphism style. The lighting is soft and high-tech, emphasizing a modern enterprise feel. Professional and precise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAak1e2jTmGrrS5-huna9L_9GwoJtRzQfnfZ7LNRfWBJqvBzJRWdWUEv5UADsJqZz-L4yO4dZCq8HRcqTxxL7dQUjeMWAwCs_T49aWkf_Nau1EwrFOC5LF1TQZ-oC4lcPzXVy9tccPL_AiCmnsWapK414w2IWKRoVxJf0U5NrVLUkTxI6Eq14WV9OfAkzGtAAkw5rCZ696sjnpPa_u3yp-vT-ACbtaUn9U2pU3o79h6m2MlpUYyRyKzdfQRM43PO-GvzHJ14IhHYbI"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="glass-panel p-6 rounded-2xl border-primary/30 flex flex-col items-center">
+<span class="material-symbols-outlined text-primary text-5xl mb-2">speed</span>
+<span class="font-headline-md text-on-surface">100/100</span>
+<span class="font-label-mono text-xs uppercase text-on-surface-variant">Lighthouse Score</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-section-padding px-margin-mobile max-w-container-max mx-auto scroll-reveal" id="services">
+<div class="mb-16">
+<span class="font-label-mono text-primary text-sm uppercase mb-4 block tracking-widest">Expertise</span>
+<h2 class="font-headline-lg-mobile md:text-headline-lg font-bold mb-6">What We Do</h2>
+</div>
+<!-- Bento Card -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-8 glass-panel p-8 md:p-12 rounded-3xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-8xl text-primary">terminal</span>
+</div>
+<div class="relative z-10">
+<h3 class="font-headline-md mb-4">Website Design &amp; Development</h3>
+<p class="font-body-md text-on-surface-variant max-w-lg mb-8">
+                            We specialize in building tailor-made digital experiences for businesses that want to stand out. Our approach combines aesthetic precision with technical excellence.
+                        </p>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+<div class="flex flex-col gap-2">
+<span class="material-symbols-outlined text-primary">responsive_layout</span>
+<span class="font-label-mono text-xs">MOBILE RESPONSIVE</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="material-symbols-outlined text-primary">bolt</span>
+<span class="font-label-mono text-xs">FAST LOAD TIMES</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="material-symbols-outlined text-primary">brush</span>
+<span class="font-label-mono text-xs">CLEAN UI</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="material-symbols-outlined text-primary">rocket_launch</span>
+<span class="font-label-mono text-xs">QUICK DEPLOYMENT</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="material-symbols-outlined text-primary">support_agent</span>
+<span class="font-label-mono text-xs">ONGOING SUPPORT</span>
+</div>
+</div>
+</div>
+</div>
+<div class="md:col-span-4 glass-panel p-8 rounded-3xl flex flex-col justify-between border-tertiary/20">
+<div>
+<h3 class="font-headline-md mb-2 text-tertiary">Performance First</h3>
+<p class="font-body-md text-on-surface-variant mb-6">
+                            We don't just build websites; we build performance machines optimized for search engines and user conversion.
+                        </p>
+</div>
+<div class="w-full h-40 bg-surface-container-low rounded-xl flex items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 grid-accent opacity-30"></div>
+<div class="relative z-10 text-center">
+<div class="text-4xl font-extrabold text-on-surface">99.9%</div>
+<div class="font-label-mono text-xs text-on-surface-variant">UPTIME RECORD</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Process Section -->
+<section class="py-section-padding bg-surface-container-lowest/50 relative">
+<div class="absolute inset-0 grid-accent opacity-10"></div>
+<div class="max-w-container-max mx-auto px-margin-mobile relative z-10 scroll-reveal">
+<div class="text-center mb-16">
+<span class="font-label-mono text-primary text-sm uppercase mb-4 block tracking-widest">Execution</span>
+<h2 class="font-headline-lg-mobile md:text-headline-lg font-bold">How It Works</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Step 1 -->
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-2xl glass-panel border-primary/40 flex items-center justify-center mb-6 rotate-3">
+<span class="font-headline-md text-primary">01</span>
+</div>
+<h4 class="font-headline-md text-xl mb-4">Tell us about your business</h4>
+<p class="font-body-md text-on-surface-variant">We start with a detailed discovery session to understand your goals, audience, and market landscape.</p>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-2xl glass-panel border-tertiary/40 flex items-center justify-center mb-6 -rotate-2">
+<span class="font-headline-md text-tertiary">02</span>
+</div>
+<h4 class="font-headline-md text-xl mb-4">We design and build</h4>
+<p class="font-body-md text-on-surface-variant">Our team engineers your custom solution using modern frameworks, focusing on speed and clean UI.</p>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-2xl glass-panel border-primary/40 flex items-center justify-center mb-6 rotate-1">
+<span class="font-headline-md text-primary">03</span>
+</div>
+<h4 class="font-headline-md text-xl mb-4">Review and launch</h4>
+<p class="font-body-md text-on-surface-variant">Final polish, testing across all devices, and we flip the switch to go live with your new HQ.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Recent Work -->
+<section class="py-section-padding px-margin-mobile max-w-container-max mx-auto scroll-reveal" id="work">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+<div>
+<span class="font-label-mono text-primary text-sm uppercase mb-4 block tracking-widest">Portfolio</span>
+<h2 class="font-headline-lg-mobile md:text-headline-lg font-bold">Recent Work</h2>
+</div>
+<div class="font-label-mono text-on-surface-variant italic">
+                    More projects coming soon
+                </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg">
+<div class="group cursor-pointer">
+<div class="glass-panel rounded-2xl overflow-hidden border-outline-variant/30 mb-6 group-hover:border-primary/50 transition-colors">
+<div class="h-8 bg-surface-container flex items-center px-4 gap-1.5 border-b border-outline-variant/30">
+<div class="w-2 h-2 rounded-full bg-outline/20"></div>
+<div class="w-2 h-2 rounded-full bg-outline/20"></div>
+<div class="w-2 h-2 rounded-full bg-outline/20"></div>
+</div>
+<div class="aspect-video bg-surface-container relative overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-100 group-hover:scale-105" data-alt="A premium real estate website UI mockup displayed within a browser frame on a dark background. The design features high-quality property photography, elegant serif typography, and a sophisticated navy and gold color palette. The UI is clean, functional, and evokes luxury and trust. Modern and minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD24rBE25KIZwp6gvsokrMiNE69Slx6fL_DyCZx-eFnNLtERQRRUUZDsVFRLRaOyf4h95Exg6I8LAd1OlXiOcolYcmL5yIL-_uKRSCHP8vYYHTdNSRrL3Nq-1mvcSYbD-OYKPgFlC6hfn9n0lzI-OC1Tvu7Ya8VANjOqciZYuKNf0fBqfRvWl0vUN0n5NHbFTJ9zkZzLrYset9LIIhJVoaCSpCj0WDwRV-xj5yGK6jb656TbmS_r8HNjyc6DEwNQJhMnhE1yP2qaLY"/>
+</div>
+</div>
+<h4 class="font-headline-md text-lg group-hover:text-primary transition-colors">Artisanal Property Group</h4>
+<p class="font-label-mono text-xs text-on-surface-variant uppercase mt-1">Design &amp; Development • 2024</p>
+</div>
+<div class="group cursor-pointer">
+<div class="glass-panel rounded-2xl overflow-hidden border-outline-variant/30 mb-6 group-hover:border-primary/50 transition-colors">
+<div class="h-8 bg-surface-container flex items-center px-4 gap-1.5 border-b border-outline-variant/30">
+<div class="w-2 h-2 rounded-full bg-outline/20"></div>
+<div class="w-2 h-2 rounded-full bg-outline/20"></div>
+<div class="w-2 h-2 rounded-full bg-outline/20"></div>
+</div>
+<div class="aspect-video bg-surface-container relative overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-100 group-hover:scale-105" data-alt="An innovative e-commerce landing page for a boutique coffee brand, shown inside a browser window. The UI uses warm earth tones and bold minimalist layouts. High-resolution photos of coffee beans and brewing equipment are integrated with clean typography. The background remains dark, consistent with the Luminous Precision theme. High-end editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAs6JnSehDQc57ZOIDAL8F5oYnFSVaxFM9ex6bkAbfu-AuS-J2S0SKMOyrirexBtXXhsvo4-6reVcK8ZjuA_LnRjrmwGWsWUd1aHiMUZEummQN-l506Vmbb4Hb5mL7v-EvZJCcAInaeVpOcV5YD5gpdVPmxxg2QfaTiaU2J60mUQ0aZzaCsmSn8UxUPVXq6t5xvnq3yXt2x8EV82WAgdBvEJVA4aL1cEOcZCz-wPDpAzKMDZyRE1H2iOI6SAyXmv7iZHr1bu_O4wf4"/>
+</div>
+</div>
+<h4 class="font-headline-md text-lg group-hover:text-primary transition-colors">Terra Coffee Roasters</h4>
+<p class="font-label-mono text-xs text-on-surface-variant uppercase mt-1">Mobile Optimized UI • 2024</p>
+</div>
+</div>
+</section>
+<!-- About Nexora -->
+<section class="py-section-padding bg-surface-container-low px-margin-mobile scroll-reveal" id="about">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-stack-lg items-center">
+<div>
+<span class="font-label-mono text-primary text-sm uppercase mb-4 block tracking-widest">Our Story</span>
+<h2 class="font-headline-lg-mobile md:text-headline-lg font-bold mb-6">Built by Students, Driven by Excellence</h2>
+<p class="font-body-lg text-on-surface-variant mb-10 leading-relaxed">
+                        Nexora was founded by two BTech students from Hyderabad with a shared obsession for high-quality code and minimal design. We saw how small businesses were being left behind by bloated agencies, and we set out to build something faster, cleaner, and more affordable.
+                    </p>
+<div class="grid grid-cols-2 gap-8">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full glass-panel border-primary/40 flex items-center justify-center font-headline-md text-primary text-xl">
+                                NS
+                            </div>
+<div>
+<h5 class="font-bold text-on-surface">Founder One</h5>
+<p class="text-sm text-on-surface-variant">BTech Student, Hyd</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full glass-panel border-tertiary/40 flex items-center justify-center font-headline-md text-tertiary text-xl">
+                                AK
+                            </div>
+<div>
+<h5 class="font-bold text-on-surface">Founder Two</h5>
+<p class="text-sm text-on-surface-variant">BTech Student, Hyd</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="absolute inset-0 bg-primary/20 blur-[100px] rounded-full"></div>
+<div class="relative glass-panel p-4 rounded-3xl rotate-2">
+<img alt="Nexora Brand Context" class="rounded-2xl w-full h-auto object-cover grayscale opacity-80 border border-outline-variant/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC33ojTe3A1OY4SEc1Y4z1gR1qdcvErQLPQfRYd4nRMgUpLjPU_eS-iwcXkJDZUUFAvAtJL1cDHrp-0WBYRkfjnY-0cHMD01FIcKPD-wWHauBS1y0ZzG4P6FYgxvSK6itAIBxggsa6BUTZ7cFq5_kcuFx2SsMhlB-jb2v7zRfbWHK9cEezNcWptw2en8_bGLgn7oY5E6zvzYIphDqTbraFuYmIH6u57PLg980EORBgw5RjiLlK_EIY0HIX2fUT4REq-G6A-ca_My2w"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Form Section -->
+<section class="py-section-padding px-margin-mobile scroll-reveal" id="contact">
+<div class="max-w-4xl mx-auto">
+<div class="text-center mb-16">
+<span class="font-label-mono text-primary text-sm uppercase mb-4 block tracking-widest">Connect</span>
+<h2 class="font-headline-lg-mobile md:text-headline-lg font-bold mb-4">Let's Build Something</h2>
+<p class="font-body-md text-on-surface-variant">Fill out the form below or reach out via WhatsApp for a faster response.</p>
+</div>
+<div class="glass-panel p-8 md:p-12 rounded-3xl relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-right from-primary via-tertiary to-primary"></div>
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-mono text-xs uppercase text-on-surface-variant">Name</label>
+<input class="w-full bg-background border-outline-variant/30 rounded-xl focus:ring-primary focus:border-primary px-4 py-3 text-on-surface" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-mono text-xs uppercase text-on-surface-variant">Email</label>
+<input class="w-full bg-background border-outline-variant/30 rounded-xl focus:ring-primary focus:border-primary px-4 py-3 text-on-surface" placeholder="john@example.com" type="email"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-mono text-xs uppercase text-on-surface-variant">Phone</label>
+<input class="w-full bg-background border-outline-variant/30 rounded-xl focus:ring-primary focus:border-primary px-4 py-3 text-on-surface" placeholder="+91 00000 00000" type="tel"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-mono text-xs uppercase text-on-surface-variant">Business Name</label>
+<input class="w-full bg-background border-outline-variant/30 rounded-xl focus:ring-primary focus:border-primary px-4 py-3 text-on-surface" placeholder="Your Ventures Ltd." type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-mono text-xs uppercase text-on-surface-variant">Message</label>
+<textarea class="w-full bg-background border-outline-variant/30 rounded-xl focus:ring-primary focus:border-primary px-4 py-3 text-on-surface" placeholder="Tell us about your project..." rows="4"></textarea>
+</div>
+<div class="flex items-start gap-3">
+<input class="mt-1 rounded bg-background border-outline-variant/30 text-primary focus:ring-primary" id="privacy" type="checkbox"/>
+<label class="text-sm text-on-surface-variant" for="privacy">
+                                I agree to the processing of my personal data according to the Digital Personal Data Protection (DPDP) Act and Nexora's Privacy Policy.
+                            </label>
+</div>
+<div class="flex flex-col md:flex-row gap-4 items-center pt-4">
+<button class="w-full md:w-auto px-10 py-4 bg-primary text-on-primary font-bold rounded-xl glow-button" type="submit">
+                                Send Message
+                            </button>
+<a class="w-full md:w-auto px-10 py-4 glass-panel text-on-surface font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-surface-variant transition-colors" href="https://wa.me/yournumber">
+<svg class="w-6 h-6 fill-current" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.025 3.12l-1.01 2.393 2.503-.984c.859.537 1.838.831 3.251.832h.001c3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.761-5.77-5.761zm3.395 8.336c-.19.477-1.12.91-1.54 1.011-.421.1-.963.151-2.996-.665-2.031-.816-3.341-2.887-3.441-3.021-.1-.134-.81-1.073-.81-2.062 0-.989.505-1.474.685-1.674.18-.2.391-.251.521-.251.13 0 .261 0 .37.005.111.005.261-.041.407.311.146.352.5.121.611.121s.221.05.321.15c.1.1.4.4.49.58.09.18.15.39.06.57-.09.18-.13.3-.26.45s-.27.34-.39.46c-.12.12-.24.26-.1.5.14.24.62 1.02 1.33 1.65.91.81 1.68 1.06 1.92 1.18.24.12.38.1.52-.06.14-.16.6-.7.76-.94.16-.24.32-.2.54-.12.22.08 1.39.65 1.63.77.24.12.4.18.46.28.06.1.06.57-.13 1.05z"></path>
+</svg>
+                                WhatsApp Us
+                            </a>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- Legal Content -->
+<section class="py-20 border-t border-outline-variant/30 px-margin-mobile">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
+<div>
+<h3 class="font-headline-md text-xl mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">policy</span>
+                        Privacy Policy
+                    </h3>
+<div class="font-body-md text-on-surface-variant/80 text-sm space-y-4">
+<p>At Nexora, we value your privacy. We only collect essential information required to contact you and understand your project needs. We never sell your data to third parties.</p>
+<p>Under the DPDP Act of India, you have the right to access, update, and request deletion of your personal data stored with us. We use industry-standard encryption for all form submissions.</p>
+</div>
+</div>
+<div>
+<h3 class="font-headline-md text-xl mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">gavel</span>
+                        Terms of Service
+                    </h3>
+<div class="font-body-md text-on-surface-variant/80 text-sm space-y-4">
+<p>All projects are subject to a mutually agreed-upon scope of work and payment schedule. Intellectual property of the custom code transfer to the client upon final payment.</p>
+<p>Our operations are governed by the laws of India, specifically within the jurisdiction of Hyderabad, Telangana. We aim for 100% client satisfaction through transparency.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full pt-stack-lg pb-10 bg-surface-container-lowest border-t border-grid-line">
+<div class="max-w-container-max mx-auto px-margin-mobile flex flex-col gap-stack-md">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+<div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-extrabold tracking-tighter">NEXORA</span>
+<p class="font-label-mono text-on-surface-variant text-xs mt-2">HIGH-PERFORMANCE DIGITAL CRAFTSMANSHIP</p>
+</div>
+<div class="flex flex-wrap gap-6">
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary transition-all duration-500 underline decoration-primary/30 underline-offset-4" href="#">INSTAGRAM</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary transition-all duration-500 underline decoration-primary/30 underline-offset-4" href="#">LINKEDIN</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary transition-all duration-500 underline decoration-primary/30 underline-offset-4" href="#">DRIBBBLE</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary transition-all duration-500 underline decoration-primary/30 underline-offset-4" href="#">PRIVACY</a>
+</div>
+</div>
+<div class="pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-label-mono text-[10px] text-on-surface-variant tracking-widest uppercase">
+                    ©2024 NEXORA DIGITAL. ALL RIGHTS RESERVED.
+                </p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary text-lg">code</span>
+<span class="material-symbols-outlined text-primary text-lg">electric_bolt</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- Mobile Bottom Nav -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 backdrop-blur-xl rounded-t-xl bg-surface-glass border-t border-outline-variant/30 flex justify-around items-center h-20 px-4 pb-safe shadow-[0_-10px_20px_rgba(139,92,246,0.1)]">
+<a class="flex flex-col items-center justify-center text-primary bg-primary/10 rounded-xl px-3 py-1 shadow-[0_0_15px_rgba(208,188,255,0.3)] transition-transform scale-110" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-mono text-[10px] mt-1">HOME</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-300" href="#work">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-label-mono text-[10px] mt-1">WORK</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-300" href="#services">
+<span class="material-symbols-outlined">layers</span>
+<span class="font-label-mono text-[10px] mt-1">SERVICES</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-300" href="#contact">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-label-mono text-[10px] mt-1">CONTACT</span>
+</a>
+</nav>
+<script>
+        // Simple Intersection Observer for Reveal Effects
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Active Link Handler for mobile bottom nav
+        const bottomLinks = document.querySelectorAll('nav.md\\:hidden a');
+        bottomLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                bottomLinks.forEach(l => {
+                    l.classList.remove('text-primary', 'bg-primary/10', 'rounded-xl', 'px-3', 'py-1', 'shadow-[0_0_15px_rgba(208,188,255,0.3)]', 'scale-110');
+                    l.classList.add('text-on-surface-variant');
+                });
+                link.classList.add('text-primary', 'bg-primary/10', 'rounded-xl', 'px-3', 'py-1', 'shadow-[0_0_15px_rgba(208,188,255,0.3)]', 'scale-110');
+                link.classList.remove('text-on-surface-variant');
+            });
+        });
+    </script>
+</body></html>
